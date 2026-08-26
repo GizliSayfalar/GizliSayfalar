@@ -148,10 +148,11 @@ linear-gradient(150deg,#243533,#182322 45%,#6a5841);color:#e8dfcd;display:flex;f
 
   /* Phone-specific hero: stacked editorial cover + text instead of a scaled desktop hero */
   .hero{
-    min-height:auto;padding:112px 0 48px;
+    min-height:auto;padding:118px 0 48px;
     background:
-      linear-gradient(180deg,rgba(7,12,11,.72),rgba(7,12,11,.93)),
-      url("../assets/hero.jpg") center 25%/cover no-repeat;
+      linear-gradient(180deg,rgba(7,12,11,.78),rgba(7,12,11,.92)),
+      radial-gradient(circle at 50% 22%,rgba(205,180,130,.34),transparent 22%),
+      linear-gradient(145deg,#172422,#273633 50%,#161d1c);
   }
   .hero-content{padding-top:0;text-align:center;display:flex;flex-direction:column;align-items:center}
   .eyebrow{font-size:9px;letter-spacing:.24em}

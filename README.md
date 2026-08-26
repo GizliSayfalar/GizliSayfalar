@@ -67,3 +67,6 @@ ozet: Modern bireyselleşme üzerine bir deneme.
 ```
 
 İçerik oluşturma işlemi `scripts/build_content.py` tarafından otomatik yapılır.
+
+## Ana sayfa görseli
+Ana sayfadaki büyük görsel `assets/hero.jpg` dosyasıdır. Yeni bir görsel kullanmak istersen aynı isimle bu dosyanın üzerine yükle.
