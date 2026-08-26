@@ -26,9 +26,8 @@ button{font:inherit}
 .nav-submit:after{display:none}
 .menu-toggle{display:none;background:none;border:0;color:var(--cream);font-size:24px;cursor:pointer}
 .hero{min-height:720px;position:relative;display:flex;align-items:center;background:
-linear-gradient(90deg,rgba(8,14,13,.96) 0%,rgba(8,14,13,.72) 42%,rgba(8,14,13,.18) 75%,rgba(8,14,13,.48) 100%),
-radial-gradient(circle at 65% 28%,rgba(203,168,108,.42),transparent 11%),
-linear-gradient(130deg,#13201f 0%,#304340 40%,#302a25 100%);overflow:hidden;color:var(--cream)}
+linear-gradient(90deg,rgba(7,12,11,.97) 0%,rgba(7,12,11,.84) 34%,rgba(7,12,11,.38) 61%,rgba(7,12,11,.68) 100%),
+url("../assets/hero.jpg") center/cover no-repeat;overflow:hidden;color:var(--cream)}
 .hero:after{content:"";position:absolute;inset:0;background:
 linear-gradient(180deg,rgba(0,0,0,.18),transparent 40%,rgba(0,0,0,.32)),
 radial-gradient(ellipse at 73% 65%,rgba(196,163,112,.14),transparent 30%);pointer-events:none}
@@ -149,11 +148,10 @@ linear-gradient(150deg,#243533,#182322 45%,#6a5841);color:#e8dfcd;display:flex;f
 
   /* Phone-specific hero: stacked editorial cover + text instead of a scaled desktop hero */
   .hero{
-    min-height:auto;padding:118px 0 48px;
+    min-height:auto;padding:112px 0 48px;
     background:
-      linear-gradient(180deg,rgba(7,12,11,.78),rgba(7,12,11,.92)),
-      radial-gradient(circle at 50% 22%,rgba(205,180,130,.34),transparent 22%),
-      linear-gradient(145deg,#172422,#273633 50%,#161d1c);
+      linear-gradient(180deg,rgba(7,12,11,.72),rgba(7,12,11,.93)),
+      url("../assets/hero.jpg") center 25%/cover no-repeat;
   }
   .hero-content{padding-top:0;text-align:center;display:flex;flex-direction:column;align-items:center}
   .eyebrow{font-size:9px;letter-spacing:.24em}
