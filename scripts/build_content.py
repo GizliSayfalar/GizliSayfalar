@@ -13,17 +13,20 @@ CATEGORIES = {
         "title": "Şiir",
         "description": "Duyguların en yalın hâli."
     },
+
     "oyku": {
         "title": "Öykü",
         "description": "Başka hayatların izinde."
     },
+
     "deneme": {
         "title": "Deneme",
         "description": "Düşünmek, yazmak, anlamak."
     },
-    "elestiri": {
-        "title": "Eleştiri",
-        "description": "Edebiyatın aynasında biz."
+
+    "inceleme": {
+        "title": "İnceleme",
+        "description": "Edebiyatı, sanatı ve düşünceyi başka bir gözle okumak."
     }
 }
 
