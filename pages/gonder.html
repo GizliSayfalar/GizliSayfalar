@@ -1,18 +1,514 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Eser Gönder — Gizli Sayfalar"><title>Eser Gönder — Gizli Sayfalar</title><link rel="icon" href="../assets/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="../css/style.css"></head><body><header class="site-header inner-header"><div class="container nav-wrap">
-<a class="brand" href="../index.html"><span class="brand-mark"><img src="../assets/logo-emblem.png" alt="" aria-hidden="true"><span><strong>Gizli Sayfalar</strong><small>EDEBİYAT DERGİSİ</small></span></span></a>
-<button class="menu-toggle" aria-label="Menüyü aç/kapat" aria-expanded="false">☰</button>
-<nav class="nav" aria-label="Ana menü">
-<a href="../index.html">Ana Sayfa</a><a href="e-dergi.html">E-Dergi</a><a href="siir.html">Şiir</a><a href="oyku.html">Öykü</a><a href="yazarlar.html">Yazarlar</a><a href="ekip.html">Ekip</a><a href="bilgi.html">Bilgi</a><a class="nav-submit" href="gonder.html">Eser Gönder</a>
-</nav></div></header>
-<main><section class="page-hero"><div class="container"><p class="eyebrow">GİZLİ SAYFALAR</p><h1>Eser Gönder</h1><p>Kalemini Gizli Sayfalar'a aç.</p></div></section><section class="content-section"><div class="container"><div class="form-box">
-<div class="notice" style="margin-bottom:25px">Gönderim sistemi henüz aktif değil. Google Forms veya e-posta adresi eklendiğinde bu alan doğrudan başvuruya açılacak.</div>
-<label>Ad / Kullanıcı adı</label><input disabled placeholder="Yakında">
-<label>E-posta</label><input disabled placeholder="Yakında">
-<label>Eser türü</label><select disabled><option>Şiir</option><option>Öykü</option><option>Deneme</option><option>Eleştiri</option></select>
-<label>Eser</label><textarea disabled placeholder="Gönderim sistemi hazır olduğunda aktif olacak."></textarea>
-</div></div></section></main><footer class="site-footer"><div class="container footer-grid">
-<div><span class="brand-mark footer-brand"><img src="../assets/logo-emblem.png" alt="" aria-hidden="true"><span><strong>Gizli Sayfalar</strong><small>EDEBİYAT DERGİSİ</small></span></span><p>Gizli kalmış kalemler için bir sayfa.</p></div>
-<div><h3>Keşfet</h3><a href="e-dergi.html">E-Dergi</a><a href="siir.html">Şiir</a><a href="oyku.html">Öykü</a><a href="yazarlar.html">Yazarlar</a></div>
-<div><h3>Gizli Sayfalar</h3><a href="ekip.html">Ekip</a><a href="bilgi.html">Bilgi</a><a href="gonder.html">Eser Gönder</a></div>
-<div><h3>Bizi takip et</h3><div class="socials"><a href="https://discord.gg/N4m8sy9b" target="_blank" rel="noopener">Discord</a><a href="https://substack.com/@lebklebkral?utm_source=share&utm_medium=android&r=7fsu47" target="_blank" rel="noopener">Substack</a><a href="https://www.reddit.com/r/GizliSayfalar/s/rLZT53cDWE" target="_blank" rel="noopener">Reddit</a><a href="#">Instagram</a></div></div>
-</div><div class="container footer-bottom"><span>© 2026 Gizli Sayfalar</span><span>Bağımsız Edebiyat Dergisi</span></div></footer><script src="../js/main.js"></script></body></html>
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Gizli Sayfalar'a şiir, öykü, deneme ve diğer edebî eserlerinizi gönderin."
+  >
+
+  <title>Eser Gönder — Gizli Sayfalar</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .submission-hero {
+      padding: 110px 0 80px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(10, 17, 16, .94),
+          rgba(10, 17, 16, .82)
+        ),
+        url("../assets/hero.jpg") center / cover;
+      color: #f4efe5;
+    }
+
+    .submission-hero .eyebrow {
+      color: #c8a96b;
+    }
+
+    .submission-hero h1 {
+      max-width: 850px;
+      margin: 15px 0 20px;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .98;
+      font-weight: 400;
+    }
+
+    .submission-hero p {
+      max-width: 650px;
+      font-size: 18px;
+      line-height: 1.8;
+      opacity: .88;
+    }
+
+    .submission-section {
+      padding: 80px 0 110px;
+      background: #f3efe6;
+    }
+
+    .submission-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      gap: 35px;
+      align-items: stretch;
+    }
+
+    .submission-card {
+      background: #fffdf8;
+      border: 1px solid rgba(30, 35, 32, .16);
+      padding: 45px;
+      box-shadow: 0 15px 45px rgba(20, 25, 23, .06);
+    }
+
+    .submission-card h2 {
+      margin: 0 0 18px;
+      font-size: 32px;
+      font-weight: 400;
+    }
+
+    .submission-card p {
+      line-height: 1.8;
+      color: #55554f;
+    }
+
+    .submission-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 22px;
+      padding: 15px 23px;
+      background: #15201e;
+      color: #f8f3e9;
+      text-decoration: none;
+      border: 1px solid #15201e;
+      transition: .25s ease;
+    }
+
+    .submission-button:hover {
+      background: transparent;
+      color: #15201e;
+    }
+
+    .submission-email {
+      color: #273a35;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .submission-note {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(30, 35, 32, .14);
+      font-size: 14px;
+    }
+
+    .submission-steps {
+      margin: 25px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .submission-steps li {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .submission-number {
+      flex: 0 0 30px;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #b69a60;
+      color: #806a3d;
+      border-radius: 50%;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+
+      .submission-hero {
+        padding: 75px 0 60px;
+      }
+
+      .submission-section {
+        padding: 55px 0 70px;
+      }
+
+      .submission-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .submission-card {
+        padding: 30px 24px;
+      }
+
+      .submission-card h2 {
+        font-size: 27px;
+      }
+
+    }
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+  <div class="container nav-wrap">
+
+    <a class="brand" href="../index.html">
+
+      <img
+        src="../assets/logo.svg"
+        alt="Gizli Sayfalar"
+      >
+
+    </a>
+
+
+    <button
+      class="menu-toggle"
+      aria-label="Menüyü aç/kapat"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+
+    <nav class="nav">
+
+      <a href="../index.html">
+        Ana Sayfa
+      </a>
+
+      <a href="e-dergi.html">
+        E-Dergi
+      </a>
+
+      <a href="siir.html">
+        Şiir
+      </a>
+
+      <a href="oyku.html">
+        Öykü
+      </a>
+
+      <a href="yazarlar.html">
+        Yazarlar
+      </a>
+
+      <a href="ekip.html">
+        Ekip
+      </a>
+
+      <a href="bilgi.html">
+        Bilgi
+      </a>
+
+      <a
+        class="nav-submit active"
+        href="gonder.html"
+      >
+        Eser Gönder
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+
+<section class="submission-hero">
+
+  <div class="container">
+
+    <p class="eyebrow">
+      GİZLİ SAYFALAR
+    </p>
+
+    <h1>
+      Eserini bize gönder.
+    </h1>
+
+    <p>
+      Gizli kalmış kalemler için bir sayfa.
+      Şiirlerini, öykülerini, denemelerini ve
+      edebiyat üzerine çalışmalarını Gizli Sayfalar'a
+      ulaştırabilirsin.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section class="submission-section">
+
+  <div class="container">
+
+    <div class="submission-grid">
+
+
+      <article class="submission-card">
+
+        <p class="eyebrow">
+          ESER GÖNDERİMİ
+        </p>
+
+        <h2>
+          Çalışmanı bizimle paylaş
+        </h2>
+
+        <p>
+          Eserini göndermek için hazırladığımız
+          formu doldurabilirsin. Gönderdiğin eserler
+          editoryal değerlendirmeden geçirildikten
+          sonra uygun görüldüğü takdirde
+          Gizli Sayfalar'da yayımlanabilir.
+        </p>
+
+        <a
+          class="submission-button"
+          href="https://docs.google.com/forms/d/e/1FAIpQLScApbjwWhx9MQRDScyhV-jKAjugcaDr7foB3stmNKZmaz5YAA/viewform?usp=header"
+          target="_blank"
+          rel="noopener"
+        >
+          Google Forms'u Aç
+          <span>→</span>
+        </a>
+
+        <p class="submission-note">
+          Form yeni bir sekmede açılır.
+          Telefon, tablet ve bilgisayardan
+          kullanılabilir.
+        </p>
+
+      </article>
+
+
+      <aside class="submission-card">
+
+        <p class="eyebrow">
+          E-POSTA
+        </p>
+
+        <h2>
+          Alternatif olarak
+        </h2>
+
+        <p>
+          Formu kullanmak istemiyorsan eserini
+          doğrudan e-posta yoluyla da
+          gönderebilirsin.
+        </p>
+
+        <p>
+          <a
+            class="submission-email"
+            href="mailto:gizlisayfalardergisi@gmail.com"
+          >
+            gizlisayfalardergisi@gmail.com
+          </a>
+        </p>
+
+        <ol class="submission-steps">
+
+          <li>
+            <span class="submission-number">1</span>
+            <span>
+              Eserinin adını ve türünü belirt.
+            </span>
+          </li>
+
+          <li>
+            <span class="submission-number">2</span>
+            <span>
+              Adını veya kullanmak istediğin
+              yazar adını ekle.
+            </span>
+          </li>
+
+          <li>
+            <span class="submission-number">3</span>
+            <span>
+              Eseri dosya olarak veya e-posta
+              metni içinde gönder.
+            </span>
+          </li>
+
+        </ol>
+
+        <a
+          class="submission-button"
+          href="mailto:gizlisayfalardergisi@gmail.com"
+        >
+          E-posta Gönder
+          <span>→</span>
+        </a>
+
+      </aside>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<footer class="site-footer">
+
+  <div class="container footer-grid">
+
+    <div>
+
+      <img
+        src="../assets/logo.svg"
+        class="footer-logo"
+        alt="Gizli Sayfalar"
+      >
+
+      <p>
+        Gizli kalmış kalemler için bir sayfa.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Keşfet
+      </h3>
+
+      <a href="e-dergi.html">
+        E-Dergi
+      </a>
+
+      <a href="siir.html">
+        Şiir
+      </a>
+
+      <a href="oyku.html">
+        Öykü
+      </a>
+
+      <a href="yazarlar.html">
+        Yazarlar
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Gizli Sayfalar
+      </h3>
+
+      <a href="ekip.html">
+        Ekip
+      </a>
+
+      <a href="bilgi.html">
+        Bilgi
+      </a>
+
+      <a href="gonder.html">
+        Eser Gönder
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Bizi takip et
+      </h3>
+
+      <div class="socials">
+
+        <a
+          href="https://discord.gg/N4m8sy9b"
+          target="_blank"
+          rel="noopener"
+        >
+          Discord
+        </a>
+
+        <a
+          href="https://www.instagram.com/gizlisayfalardergisi?igsi=eDFiaDN3czNrcjU2"
+          target="_blank"
+          rel="noopener"
+        >
+          Instagram
+        </a>
+
+        <a
+          href="https://substack.com/@lebklebkral?utm_source=share&utm_medium=android&r=7fsu47"
+          target="_blank"
+          rel="noopener"
+        >
+          Substack
+        </a>
+
+        <a
+          href="https://www.reddit.com/r/GizliSayfalar/s/rLZT53cDWE"
+          target="_blank"
+          rel="noopener"
+        >
+          Reddit
+        </a>
+
+        <a
+          href="mailto:gizlisayfalardergisi@gmail.com"
+        >
+          E-posta
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="container footer-bottom">
+
+    <span>
+      © 2026 Gizli Sayfalar
+    </span>
+
+    <span>
+      Bağımsız Edebiyat Dergisi
+    </span>
+
+  </div>
+
+</footer>
+
+
+<script src="../js/main.js"></script>
+
+</body>
+
+</html>
